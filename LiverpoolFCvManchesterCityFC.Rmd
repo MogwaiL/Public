@@ -1,0 +1,186 @@
+---
+title: "LFC Vs MCFC - Situational Awareness at the close of 2018/2019 Season"
+output:
+  html_document:
+    df_print: paged
+---
+
+Load some essential libraries.
+```{r}
+suppressMessages(library(dplyr))
+suppressMessages(library(tidyr))
+suppressMessages(library(readxl))
+suppressMessages(library(tinytex))
+suppressMessages(library(plotly))
+suppressMessages(library(lubridate))
+```
+
+Grabbing the data.
+
+```{r}
+LFCvMCFC <- read_xlsx("LFCVMCFC.xlsx")
+```
+
+The data enclosed was produced using information on transferleague.co.uk, transfermarkt.com/.co.uk, wikipedia and club/fan sites to help clarify some questions.
+
+In most cases, transfer amounts are as listed on transferleague.co.uk and player attributes primarily sourced on transfermarkt. Some notes:
+
+1) Alex Manninger was removed from the data.
+2) Danny Ings transfer value set at tribunal April 2016.
+3) Removed Lawrence Vigouroux transaction between U20 sides.
+4) Fábio Aurélio re-signed with Liverpool in August 2010. This transaction was removed and not considered to be a transfer.
+5) Rabbi Matonda transaction removed. Research shows only sale to Schalke and no evidence of large fee transaction incoming for MCFC.
+
+A quick look at the summary data:
+
+```{r}
+summary(LFCvMCFC)
+```
+
+Quick points of interest are median transfer fee at £8.25 Million, median age at time of transfer 24.29 years.
+
+We intend to plot against calendar years primarily and add a column "Year" using lubridate year() function:
+```{r}
+LFCvMCFC$Year <- year(LFCvMCFC$Date)
+str(LFCvMCFC)
+```
+
+We will also be using custom palette for plots leveraging club colors.
+
+```{r}
+footie_palette <- c(rgb(200,16,46, maxColorValue = 255), rgb(108,171,221, maxColorValue = 255))
+footie_palette <- setNames(footie_palette, c("LFC", "MCFC"))
+```
+
+
+How much money did both teams spend on transfers from mid 2008 to 2019?
+
+```{r}
+SpendSummary <-
+  
+  LFCvMCFC %>%
+  group_by(Club) %>%
+    summarise(TotalFees = sum(Fee))
+
+SpendSummary
+```
+
+Yeah, quite a lot.
+
+```{r}
+TotalPie <-
+  plot_ly(
+    data = SpendSummary,
+    labels = ~Club,
+    values = ~TotalFees,
+    type = 'pie',
+    marker = list(colors = footie_palette)) %>%
+  
+layout(title = 'Total Transfer Spend LFC v MCFC - 2008 to 2019 (£ Millions)')
+
+TotalPie
+```
+
+Of all the fees that LFC and MCFC spent from 2008 to 2019, Liverpool accounted for 39% and MCFC accounted for 61%. Or put another way, MCFC spent half as much again as LFC...
+
+```{r}
+(1391.05-900.95)/900.95 * 100
+```
+
+Intuitively, fans will probably have expected amounts in this order of magnitude.
+
+Let's see how that spending played out year over year...
+
+```{r}
+AnnualSpending <- (LFCvMCFC %>%
+                      group_by(Year, Club) %>%
+                    summarise(AnnualSpend = sum(Fee))
+                    )
+AnnualSpending
+```
+
+```{r}
+AnnualPlot <-
+  
+  plot_ly(
+    data = AnnualSpending,
+    x = ~Year,
+    y = ~AnnualSpend,
+    type = "scatter",
+    mode = "line",
+    color = ~Club,
+    colors = footie_palette
+    ) %>%
+  
+  layout(legend = list(x = 0.05, y = 0.95),
+      yaxis = list(title = 'Spent on Transfers (£ Sterling)')
+      )
+
+AnnualPlot
+```
+
+It would appear Manchester City took full advantage of new investment in 2008, 2009 and 2010. This pattern also resumed in 2015, 2016 and 2017 where significant investment was made. Liverpool spent more on transfers than Manchester City during only three years; 2011, 2014 and 2018.
+
+Let's see what patterns might emerge from a look at the individual transactions.
+
+```{r}
+TransactionScatter <- 
+  plot_ly(
+    
+    data = LFCvMCFC,
+          
+          x = ~Year, y = ~Fee,
+          
+          type = "scatter",
+          mode = 'markers',
+          color = ~Club,
+          colors = footie_palette,
+          size = ~Fee,
+          text = ~paste(Player_Purchased, Fee, Club),
+          
+          hoverinfo = "text") %>%
+
+layout(legend = list(x = 0.06, y = 1.0),
+       yaxis = list(title = 'Cost (£ Millions)'))
+
+TransactionScatter
+```
+
+Interestingly, we can see LFC has the highest amount paid for a single player (Virgil van Dijk in 2018) but in all other years, MCFC purchased the most expensive player; in many years, several more expensive players than LFC.
+
+We were curious how these massive financial resources had be allocated to positions on the pitch, also...
+
+```{r}
+PositionSummary <-
+  
+ LFCvMCFC %>%
+  group_by(Position, Club) %>%
+    summarise(Total= sum(Fee))
+PositionSummary
+```
+
+Visual will make this more meaningful...
+
+```{r}
+PositionScatter <- 
+  plot_ly(
+    
+    data = PositionSummary,
+          
+          x = ~Total, y = ~Position,
+          
+          type = "scatter",
+          mode = 'markers',
+          color = ~Club,
+          colors = footie_palette,
+          size = ~Total) %>%
+      
+layout(legend = list(x = 0.9, y = 1.0),
+       xaxis = list(title = 'Total (£ Millions)'))
+
+
+PositionScatter
+```
+
+We are not surprised that most financial resources have been allocated to the spine of the team in Centre Back, Centre Midfield and Centre Forward. This is true of both teams although MCFC have deployed significantly more. Interesting outlier at Right Wing where MCFC have deployed susbstantial resources.
+
