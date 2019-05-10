@@ -1,5 +1,5 @@
 ---
-title: "LFC Vs MCFC - Situational Awareness at the close of 2018/2019 Season"
+title: "Liverpool FC & Manchester City FC - Situational Awareness at the close of 2018/2019 Season"
 output:
   html_document:
     df_print: paged
@@ -135,7 +135,8 @@ TransactionScatter <-
           mode = 'markers',
           color = ~Club,
           colors = footie_palette,
-          size = ~Fee,
+          size = 10,
+          marker = list(opacity = 0.75),
           text = ~paste(Player_Purchased, Fee, Club),
           
           hoverinfo = "text") %>%
@@ -173,11 +174,10 @@ PositionScatter <-
           mode = 'markers',
           color = ~Club,
           colors = footie_palette,
-          size = ~Total) %>%
+          size = 10) %>%
       
 layout(legend = list(x = 0.9, y = 1.0),
        xaxis = list(title = 'Total (£ Millions)'))
-
 
 PositionScatter
 ```
