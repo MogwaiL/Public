@@ -10,7 +10,7 @@ We decided to take a look at what data we could find and build some situational 
 We also wanted to have some fun with the R programming language. Most analysis and graphics have been produced in R.
 
 The most current R Notebook can be viewed <a href= "https://mogwail.github.io/LiverpoolFCvManchesterCityFC.html">here<a/> 
-
+Data and other files are freely available on github in this repository: https://github.com/MogwaiL/mogwail.github.io
 
 We decided to look at transfer data from 2008 until present. This is a slightly arbitrary period but our reasoning was; 2008 was the year Manchester City was bought by Abu Dhabi United Group Investment and Development Limited, bringing new investment to the club. It was also the year that Vincent Kompany was bought from Hamburg for £7 Million (which we shall see was some bargain); Mr. Kompany is the current captain of Manchester City.
 
@@ -64,9 +64,57 @@ Looking at this deployment of financial resources over the timeline in question 
 </body>
 </html>
 
+It would appear Manchester City took full advantage of new investment in 2008, 2009 and 2010. This pattern also resumed in 2015, 2016 and 2017 where significant investment was made. Liverpool spent more on transfers than Manchester City during only three years; 2011, 2014 and 2018.
 
+One obvious question that arose from this was in regards to the positions of purchased players. Had either team focused their resources on particular positions?
 
-Age plot
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="lib/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="lib/plotly-binding-4.9.0/plotly.js"></script>
+<script src="lib/typedarray-0.1/typedarray.min.js"></script>
+<script src="lib/jquery-1.11.3/jquery.min.js"></script>
+<link href="lib/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="lib/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="lib/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="lib/plotly-main-1.46.1/plotly-latest.min.js"></script>
+
+</head>
+<body style="background-color:white;">
+<div align="center" style="display:inline-block">
+  <div id="htmlwidget-49d1873d9c3bf0bdc543" style="width:100%;height:400px;" class="plotly html-widget"></div>
+  <script type="application/json" data-for="htmlwidget-49d1873d9c3bf0bdc543">{"x":{"visdat":{"37ac6dd2643a":["function () ","plotlyVisDat"]},"cur_data":"37ac6dd2643a","attrs":{"37ac6dd2643a":{"x":{},"y":{},"mode":"markers","color":{},"size":10,"colors":["#C8102E","#6CABDD"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"LFC & MCFC Transfer Spend by Position","xaxis":{"domain":[0,1],"automargin":true,"title":"Total (£ Millions)"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Position","type":"category","categoryorder":"array","categoryarray":["Attacking Midfield","Centre Back","Centre Forward","Centre Midfield","Defensive Midfiled","Goalkeeper","Left Back","Left Midfield","Left Wing","Right Back","Right Wing","Second Striker"]},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[31.8,138.2,200.5,186.05,53.5,77.3,26.3,27,62.8,30,67.5,0],"y":["Attacking Midfield","Centre Back","Centre Forward","Centre Midfield","Defensive Midfiled","Goalkeeper","Left Back","Left Midfield","Left Wing","Right Back","Right Wing","Second Striker"],"mode":"markers","type":"scatter","name":"LFC","marker":{"color":"rgba(200,16,46,1)","size":[55,55,55,55,55,55,55,55,55,55,55,55],"sizemode":"area","line":{"color":"rgba(200,16,46,1)"}},"textfont":{"color":"rgba(200,16,46,1)","size":55},"error_y":{"color":"rgba(200,16,46,1)","width":55},"error_x":{"color":"rgba(200,16,46,1)","width":55},"line":{"color":"rgba(200,16,46,1)","width":55},"xaxis":"x","yaxis":"y","frame":null},{"x":[102,260.95,256.8,88.8,102.5,76.1,89.7,8,70.3,103.9,174,58],"y":["Attacking Midfield","Centre Back","Centre Forward","Centre Midfield","Defensive Midfiled","Goalkeeper","Left Back","Left Midfield","Left Wing","Right Back","Right Wing","Second Striker"],"mode":"markers","type":"scatter","name":"MCFC","marker":{"color":"rgba(108,171,221,1)","size":[55,55,55,55,55,55,55,55,55,55,55,55],"sizemode":"area","line":{"color":"rgba(108,171,221,1)"}},"textfont":{"color":"rgba(108,171,221,1)","size":55},"error_y":{"color":"rgba(108,171,221,1)","width":55},"error_x":{"color":"rgba(108,171,221,1)","width":55},"line":{"color":"rgba(108,171,221,1)","width":55},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</body>
+</html>
+
+We are not surprised that most financial resources have been allocated to the spine of the team in Centre Back, Centre Midfield and Centre Forward. This is true of both teams although MCFC have deployed significantly more. Interesting outlier at Right Wing where MCFC have spent a fair amount of money also.
+
+There is heavy dominance of specific nationalities of players and also the leagues that LFC and MCFC have chosen to purchase players from,
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="lib/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="lib/plotly-binding-4.9.0/plotly.js"></script>
+<script src="lib/typedarray-0.1/typedarray.min.js"></script>
+<script src="lib/jquery-1.11.3/jquery.min.js"></script>
+<link href="lib/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="lib/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="lib/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="lib/plotly-main-1.46.1/plotly-latest.min.js"></script>
+
+</head>
+<body style="background-color:white;">
+<div align="center" style="display:inline-block">
+  <div id="htmlwidget-0681fbbd7a4bc38c8849" style="width:100%;height:400px;" class="plotly html-widget"></div>
+  <script type="application/json" data-for="htmlwidget-0681fbbd7a4bc38c8849">{"x":{"data":[{"x":[101.65,6.25,25.3,33.8,38.5,68.5,452.3,7,153.25,5.1],"y":["Bundesliga","Championship","Eredevisie","La Liga","Liga NOS","Ligue 1","Premier League","Primera División ","Serie A","SuperLiga"],"mode":"markers","marker":{"color":"rgba(200,16,46,1)","size":[20.33,1.25,5.06,6.76,7.7,13.7,90.46,1.4,30.65,1.02],"line":{"color":"rgba(200,16,46,1)"}},"showlegend":false,"type":"scatter","name":"LFC","textfont":{"color":"rgba(200,16,46,1)"},"error_y":{"color":"rgba(200,16,46,1)"},"error_x":{"color":"rgba(200,16,46,1)"},"line":{"color":"rgba(200,16,46,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[37.7,172.7,18,325.4,103,95,476.5,30,18,82.3],"y":["Brazil Serie A","Bundesliga","Championship","La Liga","Liga NOS","Ligue 1","Premier League","Premier Liga","Russia Premier","Serie A"],"mode":"markers","marker":{"color":"rgba(108,171,221,1)","size":[7.54,34.54,3.6,65.08,20.6,19,95.3,6,3.6,16.46],"line":{"color":"rgba(108,171,221,1)"}},"showlegend":false,"type":"scatter","name":"MCFC","textfont":{"color":"rgba(108,171,221,1)"},"error_y":{"color":"rgba(108,171,221,1)"},"error_x":{"color":"rgba(108,171,221,1)"},"line":{"color":"rgba(108,171,221,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[52.5,136.25,34,193.2,52.75,50,100,34,40.1,30],"y":["Belgium","Brazil","Egypt","England","Guinea","Italy","Netherlands","Senegal","Spain","Uruguay"],"mode":"markers","marker":{"color":"rgba(200,16,46,1)","size":[13.125,34.0625,8.5,48.3,13.1875,12.5,25,8.5,10.025,7.5],"line":{"color":"rgba(200,16,46,1)"}},"type":"scatter","name":"LFC","textfont":{"color":"rgba(200,16,46,1)"},"error_y":{"color":"rgba(200,16,46,1)"},"error_x":{"color":"rgba(200,16,46,1)"},"line":{"color":"rgba(200,16,46,1)"},"xaxis":"x2","yaxis":"y2","frame":null},{"x":[60,113,61.7,194.7,266.75,178,68,68,43,98.3],"y":["Algeria","Argentina","Belgium","Brazil","England","France","Germany","Ivory Coast","Portugal","Spain"],"mode":"markers","marker":{"color":"rgba(108,171,221,1)","size":[15,28.25,15.425,48.675,66.6875,44.5,17,17,10.75,24.575],"line":{"color":"rgba(108,171,221,1)"}},"type":"scatter","name":"MCFC","textfont":{"color":"rgba(108,171,221,1)"},"error_y":{"color":"rgba(108,171,221,1)"},"error_x":{"color":"rgba(108,171,221,1)"},"line":{"color":"rgba(108,171,221,1)"},"xaxis":"x2","yaxis":"y2","frame":null}],"layout":{"xaxis":{"domain":[0,0.4],"automargin":true,"title":"Spending (£ Millions)","anchor":"y"},"xaxis2":{"domain":[0.6,1],"automargin":true,"title":"Spending (£ Millions)","anchor":"y2"},"yaxis2":{"domain":[0,1],"automargin":true,"type":"category","categoryorder":"array","categoryarray":["Algeria","Argentina","Belgium","Brazil","Egypt","England","France","Germany","Guinea","Italy","Ivory Coast","Netherlands","Portugal","Senegal","Spain","Uruguay"],"anchor":"x2"},"yaxis":{"domain":[0,1],"automargin":true,"type":"category","categoryorder":"array","categoryarray":["Brazil Serie A","Bundesliga","Championship","Eredevisie","La Liga","Liga NOS","Ligue 1","Premier League","Premier Liga","Primera División ","Russia Premier","Serie A","SuperLiga"],"anchor":"x"},"annotations":[],"shapes":[],"images":[],"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":true,"title":"LFC & MCFC Transfer Spending by Nationality and League of Origin"},"attrs":{"37ac35dd132e":{"x":{},"y":{},"mode":"markers","marker":{"size":{}},"showlegend":false,"color":{},"colors":["#C8102E","#6CABDD"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"37ac514d3c89":{"x":{},"y":{},"mode":"markers","marker":{"size":{}},"color":{},"colors":["#C8102E","#6CABDD"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"source":"A","config":{"showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</body>
+</html>
+
+Potential trends may be emerging from the age of players being purchased.
 
 
 <html>
@@ -89,4 +137,6 @@ Age plot
 </div>
 </body>
 </html>
+
+It is down to the individual reader to make any inferences here in terms of club policy. However, LFC does demonstrate a mean age of transfer targets almost a full year younger than MCFC. This is also true of the q3 values and slightly less true of q1. The difference is reduced somewhat looking at median. KDE of 1 occurs for LFC at ~25 years of age and for MCFC at ~24.80. Again, readers can reach their own conclusions but we find this interesting and would be of even greater interest if combined with data regarding contract length, etc.
 © 2019 GitHub, Inc.

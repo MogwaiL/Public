@@ -196,6 +196,11 @@ layout(title = "LFC & MCFC Transfer Spend by Position",
        xaxis = list(title = 'Total (£ Millions)'))
 
 PositionScatter
+
+Positionhtml <- htmltools::div(PositionScatter, align="center",
+                style = "display:inline-block")
+
+htmltools::save_html(Positionhtml, "Position.html" )
 ```
 
 We are not surprised that most financial resources have been allocated to the spine of the team in Centre Back, Centre Midfield and Centre Forward. This is true of both teams although MCFC have deployed significantly more. Interesting outlier at Right Wing where MCFC have deployed susbstantial resources.
@@ -449,3 +454,52 @@ htmltools::save_html(Ageviolahtml, "Ageviola.html" )
 ```
 
 It is down to the individual reader to make any inferences here in terms of club policy. However, LFC does demonstrate a mean age of transfer targets almost a full year younger than MCFC. This is also true of the q3 values and slightly less true of q1. The difference is reduced somewhat looking at median. KDE of 1 occurs for LFC at ~25 years of age and for MCFC at ~24.80. Again, readers can reach their own conclusions but we find this interesting and would be of even greater interest if combined with data regarding contract length, etc.
+
+We feel like trying a subplot of Country and League of Origin...
+
+```{r}
+TopLeagueScatterSub <- 
+  
+  plot_ly(
+    data = TopLeagueSummary,
+    x = ~Total,
+    y = ~League,
+    type = "scatter",
+    mode = 'markers',
+    color = ~Club,
+    colors = footie_palette,
+    marker = list(size = ~Total/5),
+    showlegend = FALSE) %>%
+          
+layout(xaxis = list(title = "Spending (£ Millions)")
+)
+
+TopNationScatterSub <- 
+  
+  plot_ly(
+  data = TopNationSummary,
+  x = ~Total, y = ~International,
+  type = "scatter",
+  mode = 'markers',
+  color = ~Club,
+  colors = footie_palette,
+  marker = list(size = ~Total/4)) %>%
+  
+  layout(xaxis = list(title = "Spending (£ Millions)")
+)
+
+NationAndLeagueSub <-
+  
+subplot(TopLeagueScatterSub, TopNationScatterSub, shareX = TRUE, margin = 0.1) %>%
+  
+  layout(title = "LFC & MCFC Transfer Spending by Nationality and League of Origin")
+
+NationAndLeagueSub
+
+NLhtml <- htmltools::div(NationAndLeagueSub, align="center",
+                style = "display:inline-block")
+
+htmltools::save_html(NLhtml, "NL.html" )
+
+```
+
