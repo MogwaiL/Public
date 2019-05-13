@@ -7,7 +7,7 @@ Click <a href= "https://mogwail.github.io/LiverpoolFCvManchesterCityFC.html">her
 
 Age plot
 
-<!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="utf-8"/>
