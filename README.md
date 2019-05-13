@@ -1,19 +1,24 @@
-# LFCvMCFC
-A contextual review of the 2018 - 2019 Premier League title race
+<<<<<<< HEAD
+# <h1>LFC v MCFC</h1>
+<h2>Contextual Rreview of the 2018 - 2019 Premier League Title Race</h2>
+=======
 
 in 2017 - 2018, Manchester City won the title with 5 games to spare. During their run to last year's title, they set records for points (100), goals (106) and margin of victory (19 points).
 
-To see the 2018 - 2019 season won by a single point was remarkable. Liverpool FC stayed neck and neck with Manchester City in 2018 2019 eventually finishing one point behind Manchester City (98 points vs 97 points). Liverpool are also playing in the Champions League final on June 1st, 2019.
+To see the 2018 - 2019 season won by a single point was remarkable. Liverpool FC stayed neck and neck with Manchester City in 2018 - 2019 eventually finishing one point behind Manchester City (98 points vs 97 points). Liverpool are also playing in the Champions League final on June 1st, 2019.
 
 We decided to take a look at what data we could find and build some situational awareness and context to the battle between Manchester City and Liverpool FC in 2018 - 2019. We chose to look at strategic data rather than tactical. Currently, transfer activity is available for analysis and we hope to include revenue and salary data. We firmly believe that professional managers, coaches, scouting departments and analysts are better equipped than we are to investigate tactical questions.
 
 We also wanted to have some fun with the R programming language. Most analysis and graphics have been produced in R.
 
-The most current R Notebook can be viewed <a href= "https://mogwail.github.io/LiverpoolFCvManchesterCityFC.html">here<a/> 
-Data and other files are freely available on github in this repository: https://github.com/MogwaiL/mogwail.github.io
+This summary includes some of the observations we made.
+
+For those interested in R code and additional analysis, the most current R Notebook can be viewed <a href= "https://mogwail.github.io/LiverpoolFCvManchesterCityFC.html">here<a/> and includes all R code used to analyze the data. Additional analyses and plots are also included.
+Data and other files are freely available on github in the following repository: https://github.com/MogwaiL/mogwail.github.io
 
 We decided to look at transfer data from 2008 until present. This is a slightly arbitrary period but our reasoning was; 2008 was the year Manchester City was bought by Abu Dhabi United Group Investment and Development Limited, bringing new investment to the club. It was also the year that Vincent Kompany was bought from Hamburg for £7 Million (which we shall see was some bargain); Mr. Kompany is the current captain of Manchester City.
 
+<h3>Total Spending</h3>
 To the meat of the question... how much money have these two teams spent on incoming transfers since 2008?
 
 <html>
@@ -140,3 +145,4 @@ Potential trends may be emerging from the age of players being purchased.
 
 It is down to the individual reader to make any inferences here in terms of club policy. However, LFC does demonstrate a mean age of transfer targets almost a full year younger than MCFC. This is also true of the q3 values and slightly less true of q1. The difference is reduced somewhat looking at median. KDE of 1 occurs for LFC at ~25 years of age and for MCFC at ~24.80. Again, readers can reach their own conclusions but we find this interesting and would be of even greater interest if combined with data regarding contract length, etc.
 © 2019 GitHub, Inc.
+ 
