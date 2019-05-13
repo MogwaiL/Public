@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 # <h1>LFC v MCFC</h1>
 <h2>Contextual Rreview of the 2018 - 2019 Premier League Title Race</h2>
-=======
 
 in 2017 - 2018, Manchester City won the title with 5 games to spare. During their run to last year's title, they set records for points (100), goals (106) and margin of victory (19 points).
 
