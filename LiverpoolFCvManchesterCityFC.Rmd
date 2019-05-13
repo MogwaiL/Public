@@ -282,7 +282,7 @@ Clearly, both teams have a preference for players already in the Premier League.
 #Filter dataset
 PepSpending <-
   LFCvMCFC %>%
-  filter(Club == "MCFC" & League %in% c("La Liga", "Bundesliga"))
+  filter(Club == "MCFC" & League %in% c("La Liga", "Bundesliga", "Premier League"))
 
 #Summarize the data
   PepSpendingSummary <-
@@ -294,7 +294,7 @@ PepSpendingSummary
 
 ```
 
-And let's visualize this:
+And let's visualize this with Premier League for reference:
 
 ```{r}
 PepSpendingPlot <-
@@ -371,7 +371,7 @@ LFCNationTrendPlot <-
           mode = 'line',
           linetype = ~International
           
-)
+          )
 
 LFCNationTrendPlot
 ```
@@ -431,6 +431,7 @@ AgeViola <- LFCvMCFC %>%
 
 AgeViola
 
+#creating html version of this plot
 Ageviolahtml <- htmltools::div(AgeViola, align="center",
                 style = "display:inline-block")
 
