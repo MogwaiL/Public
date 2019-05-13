@@ -86,6 +86,11 @@ TotalPie <-
 layout(title = 'Total Transfer Spend LFC v MCFC - 2008 to 2019 (£ Millions)')
 
 TotalPie
+
+TotalPiehtml <- htmltools::div(TotalPie, align="center",
+                style = "display:inline-block")
+
+htmltools::save_html(TotalPiehtml, "TotalPie.html" )
 ```
 
 Of all the fees that LFC and MCFC spent from 2008 to 2019, Liverpool accounted for 39% and MCFC accounted for 61%. Or put another way, MCFC spent half as much again as LFC...
@@ -124,6 +129,11 @@ AnnualPlot <-
          yaxis = list(title = 'Spent (£ Millions)'))
 
 AnnualPlot
+
+Annualhtml <- htmltools::div(AnnualPlot, align="center",
+                style = "display:inline-block")
+
+htmltools::save_html(Annualhtml, "Annual.html" )
 ```
 
 It would appear Manchester City took full advantage of new investment in 2008, 2009 and 2010. This pattern also resumed in 2015, 2016 and 2017 where significant investment was made. Liverpool spent more on transfers than Manchester City during only three years; 2011, 2014 and 2018.

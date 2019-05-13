@@ -1,9 +1,70 @@
 # LFCvMCFC
-Some situational awareness for the rundown of 2018/2019 season
+A contextual review of the 2018 - 2019 Premier League title race
 
-Contents of this site are primarily R Notebook rendering of analysis for Liverpool and Manchester City transfers from 2008 to 2019.
+in 2017 - 2018, Manchester City won the title with 5 games to spare. During their run to last year's title, they set records for points (100), goals (106) and margin of victory (19 points).
 
-Click <a href= "https://mogwail.github.io/LiverpoolFCvManchesterCityFC.html">here<a/> for current analysis.
+To see the 2018 - 2019 season won by a single point was remarkable. Liverpool FC stayed neck and neck with Manchester City in 2018 2019 eventually finishing one point behind Manchester City (98 points vs 97 points). Liverpool are also playing in the Champions League final on June 1st, 2019.
+
+We decided to take a look at what data we could find and build some situational awareness and context to the battle between Manchester City and Liverpool FC in 2018 - 2019. We chose to look at strategic data rather than tactical. Currently, transfer activity is available for analysis and we hope to include revenue and salary data. We firmly believe that professional managers, coaches, scouting departments and analysts are better equipped than we are to investigate tactical questions.
+
+We also wanted to have some fun with the R programming language. Most analysis and graphics have been produced in R.
+
+The most current R Notebook can be viewed <a href= "https://mogwail.github.io/LiverpoolFCvManchesterCityFC.html">here<a/> 
+
+
+We decided to look at transfer data from 2008 until present. This is a slightly arbitrary period but our reasoning was; 2008 was the year Manchester City was bought by Abu Dhabi United Group Investment and Development Limited, bringing new investment to the club. It was also the year that Vincent Kompany was bought from Hamburg for £7 Million (which we shall see was some bargain); Mr. Kompany is the current captain of Manchester City.
+
+To the meat of the question... how much money have these two teams spent on incoming transfers since 2008?
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="lib/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="lib/plotly-binding-4.9.0/plotly.js"></script>
+<script src="lib/typedarray-0.1/typedarray.min.js"></script>
+<script src="lib/jquery-1.11.3/jquery.min.js"></script>
+<link href="lib/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="lib/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="lib/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="lib/plotly-main-1.46.1/plotly-latest.min.js"></script>
+
+</head>
+<body style="background-color:white;">
+<div align="center" style="display:inline-block">
+  <div id="htmlwidget-671cefa3c622042fd9a4" style="width:100%;height:400px;" class="plotly html-widget"></div>
+  <script type="application/json" data-for="htmlwidget-671cefa3c622042fd9a4">{"x":{"visdat":{"37ac7f77b20":["function () ","plotlyVisDat"]},"cur_data":"37ac7f77b20","attrs":{"37ac7f77b20":{"labels":{},"values":{},"marker":{"colors":["#C8102E","#6CABDD"]},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"pie"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Total Transfer Spend LFC v MCFC - 2008 to 2019 (£ Millions)","hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"labels":["LFC","MCFC"],"values":[900.95,1391.05],"marker":{"color":"rgba(31,119,180,1)","colors":["#C8102E","#6CABDD"],"line":{"color":"rgba(255,255,255,1)"}},"type":"pie","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</body>
+</html>
+
+Yup, quite a lot.
+
+And in some context, Manchester City spent half as much again as Liverpool (£1.39 Billion vs £900 Million).
+
+Looking at this deployment of financial resources over the timeline in question (2008 - 2019) is also informative.
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="lib/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="lib/plotly-binding-4.9.0/plotly.js"></script>
+<script src="lib/typedarray-0.1/typedarray.min.js"></script>
+<script src="lib/jquery-1.11.3/jquery.min.js"></script>
+<link href="lib/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="lib/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="lib/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="lib/plotly-main-1.46.1/plotly-latest.min.js"></script>
+
+</head>
+<body style="background-color:white;">
+<div align="center" style="display:inline-block">
+  <div id="htmlwidget-f1791d6d667cc094e75f" style="width:100%;height:400px;" class="plotly html-widget"></div>
+  <script type="application/json" data-for="htmlwidget-f1791d6d667cc094e75f">{"x":{"visdat":{"37ac37b414f8":["function () ","plotlyVisDat"]},"cur_data":"37ac37b414f8","attrs":{"37ac37b414f8":{"x":{},"y":{},"mode":"line","color":{},"colors":["#C8102E","#6CABDD"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"legend":{"x":0.05,"y":0.95},"title":"LFC & MCFC Annual Transfer Spending","yaxis":{"domain":[0,1],"automargin":true,"title":"Spent (£ Millions)"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Year"},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018],"y":[39,36,22.45,114.3,28.9,69.3,117,85,73,80,236],"mode":"line","type":"scatter","name":"LFC","marker":{"color":"rgba(200,16,46,1)","line":{"color":"rgba(200,16,46,1)"}},"textfont":{"color":"rgba(200,16,46,1)"},"error_y":{"color":"rgba(200,16,46,1)"},"error_x":{"color":"rgba(200,16,46,1)"},"line":{"color":"rgba(200,16,46,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],"y":[77.7,168,134.75,100,57,103.2,59.5,180,140.25,243.9,119.75,7],"mode":"line","type":"scatter","name":"MCFC","marker":{"color":"rgba(108,171,221,1)","line":{"color":"rgba(108,171,221,1)"}},"textfont":{"color":"rgba(108,171,221,1)"},"error_y":{"color":"rgba(108,171,221,1)"},"error_x":{"color":"rgba(108,171,221,1)"},"line":{"color":"rgba(108,171,221,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</body>
+</html>
+
+
 
 Age plot
 
