@@ -1,5 +1,5 @@
 ---
-title: "Liverpool FC & Manchester City FC - Situational Awareness at the close of 2018/2019 Season"
+title: "LFC Vs MCFC - Situational Awareness at the close of 2018/2019 Season"
 output:
   html_document:
     df_print: paged
@@ -13,6 +13,7 @@ suppressMessages(library(readxl))
 suppressMessages(library(tinytex))
 suppressMessages(library(plotly))
 suppressMessages(library(lubridate))
+suppressMessages(library(htmltools))
 ```
 
 Grabbing the data.
@@ -34,6 +35,7 @@ In most cases, transfer amounts are as listed on transferleague.co.uk and player
 A quick look at the summary data:
 
 ```{r}
+#display summary
 summary(LFCvMCFC)
 ```
 
@@ -41,7 +43,11 @@ Quick points of interest are median transfer fee at £8.25 Million, median age a
 
 We intend to plot against calendar years primarily and add a column "Year" using lubridate year() function:
 ```{r}
-LFCvMCFC$Year <- year(LFCvMCFC$Date)
+#add column to df extracting year from "Date"
+LFCvMCFC$Year <-
+year(LFCvMCFC$Date)
+
+#display structure
 str(LFCvMCFC)
 ```
 
@@ -60,7 +66,7 @@ SpendSummary <-
   
   LFCvMCFC %>%
   group_by(Club) %>%
-    summarise(TotalFees = sum(Fee))
+  summarise(TotalFees = sum(Fee))
 
 SpendSummary
 ```
@@ -69,12 +75,13 @@ Yeah, quite a lot.
 
 ```{r}
 TotalPie <-
+  
   plot_ly(
     data = SpendSummary,
     labels = ~Club,
     values = ~TotalFees,
     type = 'pie',
-    marker = list(colors = footie_palette)) %>%
+    marker = list(colors = footie_palette)) %>% #note piping '%>%' the plot to layout.
   
 layout(title = 'Total Transfer Spend LFC v MCFC - 2008 to 2019 (£ Millions)')
 
@@ -92,10 +99,11 @@ Intuitively, fans will probably have expected amounts in this order of magnitude
 Let's see how that spending played out year over year...
 
 ```{r}
-AnnualSpending <- (LFCvMCFC %>%
-                      group_by(Year, Club) %>%
-                    summarise(AnnualSpend = sum(Fee))
-                    )
+AnnualSpending <-
+  LFCvMCFC %>%
+  group_by(Year, Club) %>%
+  summarise(AnnualSpend = sum(Fee))
+  
 AnnualSpending
 ```
 
@@ -109,12 +117,11 @@ AnnualPlot <-
     type = "scatter",
     mode = "line",
     color = ~Club,
-    colors = footie_palette
-    ) %>%
+    colors = footie_palette) %>%
   
-  layout(legend = list(x = 0.05, y = 0.95),
-      yaxis = list(title = 'Spent on Transfers (£ Sterling)')
-      )
+  layout(legend = list(x = 0.05, y = 0.95), #sometimes we move the legend around
+      title = "LFC & MCFC Annual Transfer Spending",
+         yaxis = list(title = 'Spent (£ Millions)'))
 
 AnnualPlot
 ```
@@ -125,23 +132,22 @@ Let's see what patterns might emerge from a look at the individual transactions.
 
 ```{r}
 TransactionScatter <- 
-  plot_ly(
-    
+ 
+   plot_ly(
     data = LFCvMCFC,
-          
-          x = ~Year, y = ~Fee,
-          
-          type = "scatter",
-          mode = 'markers',
-          color = ~Club,
-          colors = footie_palette,
-          size = 10,
-          marker = list(opacity = 0.75),
-          text = ~paste(Player_Purchased, Fee, Club),
-          
-          hoverinfo = "text") %>%
+    x = ~Year,
+    y = ~Fee,
+    type = "scatter",
+    mode = 'markers',
+    color = ~Club,
+    colors = footie_palette,
+    size = 10, #we have opted for a standard size here
+    marker = list(opacity = 0.75), #we have a lot of density in parts so opacity is increased
+    text = ~paste(Player_Purchased, Fee, Club), #text and hoverinfo introduced to improve default hovertext
+    hoverinfo = "text") %>%
 
 layout(legend = list(x = 0.06, y = 1.0),
+       title = "LFC & MCFC Individual Transfers",
        yaxis = list(title = 'Cost (£ Millions)'))
 
 TransactionScatter
@@ -157,6 +163,7 @@ PositionSummary <-
  LFCvMCFC %>%
   group_by(Position, Club) %>%
     summarise(Total= sum(Fee))
+
 PositionSummary
 ```
 
@@ -164,19 +171,18 @@ Visual will make this more meaningful...
 
 ```{r}
 PositionScatter <- 
+  
   plot_ly(
-    
     data = PositionSummary,
-          
-          x = ~Total, y = ~Position,
-          
-          type = "scatter",
-          mode = 'markers',
-          color = ~Club,
-          colors = footie_palette,
-          size = 10) %>%
+    x = ~Total,
+    y = ~Position,
+    type = "scatter",
+    mode = 'markers',
+    color = ~Club,
+    colors = footie_palette,
+    size = 10) %>%
       
-layout(legend = list(x = 0.9, y = 1.0),
+layout(title = "LFC & MCFC Transfer Spend by Position",
        xaxis = list(title = 'Total (£ Millions)'))
 
 PositionScatter
@@ -184,3 +190,251 @@ PositionScatter
 
 We are not surprised that most financial resources have been allocated to the spine of the team in Centre Back, Centre Midfield and Centre Forward. This is true of both teams although MCFC have deployed significantly more. Interesting outlier at Right Wing where MCFC have deployed susbstantial resources.
 
+What stories emerge when looking at teams that players were purchased "From"?
+
+```{r}
+PartnerSummary <-
+  LFCvMCFC %>%
+  group_by(Club, From) %>%
+  summarise(Total = sum(Fee))
+
+PartnerSummary
+
+PartnerScatter <- 
+  
+  plot_ly(
+   data = PartnerSummary,
+   x = ~Total,
+   y = ~From,
+   type = "scatter",
+   mode = 'markers',
+   color = ~Club,
+   colors = footie_palette,
+   marker = list(size = ~Total/4)) %>% #we have changed scaling here to drag the eye in desired direction
+     
+layout(title = "LFC & MCFC Transfer Spending by Selling Club",
+       xaxis = list(title = "Spending (£ Millions)")
+   )
+
+PartnerScatter
+```
+
+Liverpool really have spent a lot of money at Southampton and AS Roma. However, this plot is super high on density and low on readability. Do we need to see all the dots around y axis? Probably not. Let's do a top 10 leveraging top_n() function.
+
+```{r}
+TopPartnerSummary <-
+  top_n(PartnerSummary, 10, Total)
+
+TopPartnerSummary
+
+TopPartnerScatter <- 
+  
+  plot_ly(
+    data = TopPartnerSummary,
+    x = ~Total,
+    y = ~From,
+    type = "scatter",
+    mode = 'markers',
+    color = ~Club,
+    colors = footie_palette,
+    marker = list(size = ~Total/4)) %>%
+  
+  layout(title = "LFC & MCFC Top 10 Transfer Partners",
+         xaxis = list(title = "Spending (£ Millions)")
+)
+TopPartnerScatter
+```
+
+LFC and MCFC clearly had their preferred partners during the period in question. MCFC more evenly distributed across Monaco, Everton, Wolfsburg and Arsenal. We wonder if this pattern holds true when looking at the League players have come from. top_n() will be used here again.
+
+```{r}
+LeagueSummary <-
+  LFCvMCFC %>%
+  group_by(Club, League) %>%
+  summarise(Total = sum(Fee))
+
+TopLeagueSummary <-
+  top_n(LeagueSummary, 10, Total)
+
+TopLeagueScatter <- 
+  
+  plot_ly(
+    data = TopLeagueSummary,
+    x = ~Total,
+    y = ~League,
+    type = "scatter",
+    mode = 'markers',
+    color = ~Club,
+    colors = footie_palette,
+    
+    marker = list(size = ~Total/5)) %>%
+          
+layout(title = "LFC & MCFC Transfer Purchases by Top 10 League of Origin",
+       xaxis = list(title = "Spending (£ Millions)")
+)
+
+TopLeagueScatter
+```
+
+Clearly, both teams have a preference for players already in the Premier League. Manchester City have shown a significant appetite for high value players from Spain's La Liga and to a lesser extent Germany's Bundesliga. Liverpool have also spent a good deal on Italy's Serie A, which is no surprise as we earlier saw the value of transactions with AS Roma. We are going to sidetrack for a moment as a question just occurred to us. Did the arrival of Pep Guardiola as manager of Manchester City influence spending on players from La Liga and Bundesliga? Guardiola managed in both these leagues prior to joining Manchester City.
+
+```{r}
+#Filter dataset
+PepSpending <-
+  LFCvMCFC %>%
+  filter(Club == "MCFC" & League %in% c("La Liga", "Bundesliga"))
+
+#Summarize the data
+  PepSpendingSummary <-
+    PepSpending %>%
+    group_by(Year, League) %>%
+    summarise(Total = sum(Fee))
+          
+PepSpendingSummary
+
+```
+
+And let's visualize this:
+
+```{r}
+PepSpendingPlot <-
+  
+  plot_ly(
+    data = PepSpendingSummary,
+    x = ~Year,
+    y = ~Total,
+    type = "scatter",
+    mode = "line",
+    color = ~League) %>%
+
+layout(title = "MCFC Spending on Bundesliga and La Liga",
+       yaxis = list(title = "Spending (£ Millions)")
+       )
+PepSpendingPlot
+```
+
+Pep Guardiola arrived February 1, 2016. There is clearly an uptick for spending on players from La Liga but peaks also exist in 2010 and 2013. Pep's knowledge of the league may have influenced some of the recent purchases.
+
+Fans may be curious about distribution of purchases across country of origin. This is what we found. Again, we have refined based on a top 10.
+
+```{r}
+NationSummary <-
+  LFCvMCFC %>%
+  group_by(Club, International) %>%
+  summarise(Total = sum(Fee))
+
+TopNationSummary <-
+  top_n(NationSummary, 10, Total)
+
+TopNationScatter <- 
+  
+  plot_ly(
+  data = TopNationSummary,
+  x = ~Total, y = ~International,
+  type = "scatter",
+  mode = 'markers',
+  color = ~Club,
+  colors = footie_palette,
+  marker = list(size = ~Total/3)) %>%
+  
+  layout(title = "LFC & MCFC Transfer Spending by Top 10 Country of Origin",
+         xaxis = list(title = "Spending (£ Millions)",
+         yaxis = list(title = "Country")
+         )
+)
+
+TopNationScatter
+```
+
+In terms of monetary value, both clubs have spent the most on English players. MCFC have also invested large sums in French and Brazilian players. The absolute numbers are certainly telling but how are they trending? We will examine the top 6 nationalities represented above.
+
+```{r}
+#filter the data
+LFCFliter <-
+  LFCvMCFC %>%
+  filter(Club == "LFC" & International %in% c("England", "Brazil", "France", "Argentina", "Netherlands", "Spain"))
+ 
+#summarize
+LFCNationTrendSummary <-
+  LFCFliter %>%
+  group_by(Year, International) %>%
+  summarise(Total = sum(Fee))
+
+LFCNationTrendPlot <- 
+  plot_ly(
+    
+    data = LFCNationTrendSummary,
+          
+          x = ~Year, y = ~Total,
+          
+          type = "scatter",
+          mode = 'line',
+          linetype = ~International
+          
+)
+
+LFCNationTrendPlot
+```
+
+For Liverpool we can see the early impact of spending on English players which also shows a recent slow increase. Large jump in resources deployed on Brazilian and Dutch players. Spending on the Dutch is due to the record on Virgil van Diyk.
+
+and MCFC?
+
+```{r}
+#filter the data
+MCFCFliter <-
+  LFCvMCFC %>%
+  filter(Club == "MCFC" & International %in% c("England", "Brazil", "France", "Argentina", "Netherlands", "Spain"))
+ 
+#summarize
+MCFCNationTrendSummary <-
+  MCFCFliter %>%
+  group_by(Year, International) %>%
+  summarise(Total = sum(Fee))
+
+MCFCNationTrendPlot <- 
+  plot_ly(
+    
+    data = MCFCNationTrendSummary,
+          
+          x = ~Year, y = ~Total,
+          
+          type = "scatter",
+          mode = 'line',
+          linetype = ~International
+          
+)
+
+MCFCNationTrendPlot
+```
+
+We are curious about the ages of players being purchased. Are they younger or established? Is one team buying younger than the other and investing for a longer future? We will use some slightly more involved statistical investigation here, opting for a violin plot. Please google them if you need detailed understanding.
+
+```{r}
+AgeViola <- LFCvMCFC %>%
+  
+  plot_ly(
+    x = ~Club,
+    y = ~Age_at_Transfer,
+    split = ~Club,
+    type = 'violin',
+    colors = footie_palette,
+    color = ~Club,
+    box = list(visible = T),
+    meanline = list(visible = T)) %>% 
+  
+  layout(title = "LFC & MCFC Age Distribution of Transfer Targets",
+    xaxis = list(title = "Club"),
+        yaxis = list(title = "Age at Transfer",
+      zeroline = F)
+  )
+
+AgeViola
+
+Ageviolahtml <- htmltools::div(AgeViola, align="center",
+                style = "display:inline-block")
+
+htmltools::save_html(Ageviolahtml, "Ageviola.html" )
+```
+
+It is down to the individual reader to make any inferences here in terms of club policy. However, LFC does demonstrate a mean age of transfer targets almost a full year younger than MCFC. This is also true of the q3 values and slightly less true of q1. The difference is reduced somewhat looking at median. KDE of 1 occurs for LFC at ~25 years of age and for MCFC at ~24.80. Again, readers can reach their own conclusions but we find this interesting and would be of even greater interest if combined with data regarding contract length, etc.
