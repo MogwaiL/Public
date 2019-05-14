@@ -86,7 +86,6 @@ While some European teams are happy to spend large amounts of money on record tr
 <link href="lib/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="lib/plotly-main-1.46.1/plotly-latest.min.js"></script>
 
-</html>
 </head>
 <body style="background-color:white;">
 <div align="center" style="display:inline-block">
