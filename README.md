@@ -72,7 +72,7 @@ Comparing the transfer spending during the timeline in question (2008 - 2019) is
 It would appear Manchester City took full advantage of new investment in 2008, 2009 and 2010. This pattern also resumed in 2015, 2016 and 2017 where significant investment was made. Liverpool spent more on transfers than Manchester City during only three years; 2011, 2014 and 2018.
 
 <h2>Player Transactions</h2>
-While some European teams are happy to spend large amounts of money on record transfers, one cannot say the same of Manchester City. Indeed, a review of the individual transactions shows that Liverpool actually paid the most for a single player (Virgil van Dikj). While Manchester City clearly has spent substantially on players, the investment is distributed across the entire team. This seems to be borne out by performance as this team is incredibly deep rather than dependent on a handful of very expensive players.
+While some European teams are happy to spend large amounts of money on record transfers, one cannot say the same of Manchester City. Indeed, a review of the individual transactions shows that Liverpool actually paid the most for a single player (Virgil van Dijk). While Manchester City clearly has spent substantially on players, the investment is distributed across the entire team. This seems to be borne out by performance as this team is incredibly deep rather than dependent on a handful of very expensive players.
 
 <html>
 <head>
