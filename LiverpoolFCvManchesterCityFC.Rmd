@@ -161,6 +161,11 @@ layout(legend = list(x = 0.06, y = 1.0),
        yaxis = list(title = 'Cost (£ Millions)'))
 
 TransactionScatter
+
+Transactionshtml <- htmltools::div(TransactionScatter, align="center",
+                style = "display:inline-block")
+
+htmltools::save_html(Transactionshtml, "Transactions.html" )
 ```
 
 Interestingly, we can see LFC has the highest amount paid for a single player (Virgil van Dijk in 2018) but in all other years, MCFC purchased the most expensive player; in many years, several more expensive players than LFC.

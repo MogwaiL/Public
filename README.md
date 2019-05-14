@@ -1,5 +1,9 @@
-# <h1>LFC v MCFC</h1>
-<h2>Contextual Rreview of the 2018 - 2019 Premier League Title Race</h2>
+<<<<<<< HEAD
+#Liverpool FC vs Manchester City CFC
+Contextual Review of the 2018 - 2019 Premier League Title Race
+=======
+
+<h1>Contextual Review of the 2018 - 2019 Premier League Title Race</h1>
 
 in 2017 - 2018, Manchester City won the title with 5 games to spare. During their run to last year's title, they set records for points (100), goals (106) and margin of victory (19 points).
 
@@ -12,11 +16,12 @@ We also wanted to have some fun with the R programming language. Most analysis a
 This summary includes some of the observations we made.
 
 For those interested in R code and additional analysis, the most current R Notebook can be viewed <a href= "https://mogwail.github.io/LiverpoolFCvManchesterCityFC.html">here<a/> and includes all R code used to analyze the data. Additional analyses and plots are also included.
+
 Data and other files are freely available on github in the following repository: https://github.com/MogwaiL/mogwail.github.io
 
 We decided to look at transfer data from 2008 until present. This is a slightly arbitrary period but our reasoning was; 2008 was the year Manchester City was bought by Abu Dhabi United Group Investment and Development Limited, bringing new investment to the club. It was also the year that Vincent Kompany was bought from Hamburg for £7 Million (which we shall see was some bargain); Mr. Kompany is the current captain of Manchester City.
 
-<h3>Total Spending</h3>
+<h2>Total Spending</h2>
 To the meat of the question... how much money have these two teams spent on incoming transfers since 2008?
 
 <html>
@@ -42,9 +47,9 @@ To the meat of the question... how much money have these two teams spent on inco
 
 Yup, quite a lot.
 
-And in some context, Manchester City spent half as much again as Liverpool (£1.39 Billion vs £900 Million).
+Another way of reading this context is Manchester City spent half as much again as Liverpool (£1.39 Billion vs £900 Million). Not that the best part of a billion pounds isn't significant. But the advantage is fairly clear. However, this does not tell the full story alone.
 
-Looking at this deployment of financial resources over the timeline in question (2008 - 2019) is also informative.
+Comparing the transfer spending during the timeline in question (2008 - 2019) is also informative.
 
 <html>
 <head>
@@ -69,7 +74,34 @@ Looking at this deployment of financial resources over the timeline in question 
 
 It would appear Manchester City took full advantage of new investment in 2008, 2009 and 2010. This pattern also resumed in 2015, 2016 and 2017 where significant investment was made. Liverpool spent more on transfers than Manchester City during only three years; 2011, 2014 and 2018.
 
-One obvious question that arose from this was in regards to the positions of purchased players. Had either team focused their resources on particular positions?
+<h2>Player Transactions</h2>
+While some European teams are happy to spend large amounts of money on record transfers, one cannot say the same of Manchester City. Indeed, a review of the individual transactions shows that Liverpool actually paid the most for a single player (Virgil van Diyk). While Manchester City clearly has spent substantially on players, the investment is distributed across the entire team. This seems to be borne out by performance as this team is incredibly deep rather than dependent on a handful of very expensive players.
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="lib/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="lib/plotly-binding-4.9.0/plotly.js"></script>
+<script src="lib/typedarray-0.1/typedarray.min.js"></script>
+<script src="lib/jquery-1.11.3/jquery.min.js"></script>
+<link href="lib/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="lib/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="lib/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="lib/plotly-main-1.46.1/plotly-latest.min.js"></script>
+
+</html>
+</head>
+<body style="background-color:white;">
+<div align="center" style="display:inline-block">
+  <div id="htmlwidget-cc16889d2df9b0c04175" style="width:100%;height:400px;" class="plotly html-widget"></div>
+  <script type="application/json" data-for="htmlwidget-cc16889d2df9b0c04175">{"x":{"visdat":{"429c6064f0":["function () ","plotlyVisDat"]},"cur_data":"429c6064f0","attrs":{"429c6064f0":{"x":{},"y":{},"mode":"markers","marker":{"opacity":0.75},"text":{},"hoverinfo":"text","color":{},"size":10,"colors":["#C8102E","#6CABDD"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"legend":{"x":0.06,"y":1},"title":"LFC & MCFC Individual Transfers","yaxis":{"domain":[0,1],"automargin":true,"title":"Cost (£ Millions)"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Year"},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2018,2018,2018,2018,2017,2017,2017,2017,2018,2016,2016,2016,2016,2016,2015,2015,2015,2015,2015,2015,2015,2016,2014,2014,2014,2014,2014,2014,2014,2014,2014,2013,2013,2013,2013,2013,2013,2012,2012,2012,2012,2013,2013,2012,2011,2011,2011,2011,2011,2011,2011,2011,2012,2010,2010,2010,2010,2010,2010,2010,2010,2010,2010,2011,2011,2009,2009,2009,2009,2009,2010,2008,2008,2008,2008,2008,2008,2008],"y":[39,52.75,56.25,13,3,34,8,35,75,4.7,0,34,4.2,25,29,3.5,0,7.5,0,12.5,32.5,5.1,10,4,25,20,20,10,12,16,0,6.8,7,0,10,7,18,10,15,2.3,1,12,8.5,0.5,16,7,0,20,6.3,7,0,0,0.1,1.7,0,2,0,4.5,2.3,11.5,0,0,0.45,23,35,17.5,0,0,17,1.5,0,0,7,3.5,19,0,8,1.5],"mode":"markers","marker":{"color":"rgba(200,16,46,1)","size":[55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55],"sizemode":"area","opacity":0.75,"line":{"color":"rgba(200,16,46,1)"}},"text":["Fabinho 39 LFC","Naby Keïta 52.75 LFC","Alisson 56.25 LFC","Xherdan Shaqiri 13 LFC","Dominic Solanke 3 LFC","Mohamed Salah 34 LFC","Andrew Robertson 8 LFC","Alex Oxlade-Chamberlain 35 LFC","Virgil van Dijk 75 LFC","Loris Karius 4.7 LFC","Joël Matip 0 LFC","Sadio Mane 34 LFC","Ragnar Klavan 4.2 LFC","Georginio Wijnaldum 25 LFC","Roberto Firmino 29 LFC","Joe Gomez 3.5 LFC","Ádám Bogdán 0 LFC","Danny Ings 7.5 LFC","James Milner 0 LFC","Nathaniel Clyne 12.5 LFC","Christian Benteke 32.5 LFC","Marko Grujić 5.1 LFC","Emre Can 10 LFC","Rickie Lambert 4 LFC","Adam Lallana 25 LFC","Lazar Marković 20 LFC","Dejan Lovren 20 LFC","Divock Origi 10 LFC","Alberto Moreno 12 LFC","Mario Balotelli 16 LFC","Kevin Stewart 0 LFC","Luis Alberto 6.8 LFC","Iago Aspas 7 LFC","Kolo Toure 0 LFC","Simon Mignolet 10 LFC","Tiago Ilori 7 LFC","Mamadou Sakho 18 LFC","Fabio Borini 10 LFC","Joe Allen 15 LFC","Oussama Assaidi 2.3 LFC","Samed Yesil 1 LFC","Daniel Sturridge 12 LFC","Philippe Coutinho 8.5 LFC","Jordon Ibe 0.5 LFC","Jordan Henderson 16 LFC","Charlie Adam 7 LFC","Doni 0 LFC","Stewart Downing 20 LFC","José Enrique 6.3 LFC","Sebastian Coates 7 LFC","Craig Bellamy 0 LFC","Villyan Bijev 0 LFC","Danny Ward 0.1 LFC","Jonjo Shelvey 1.7 LFC","Milan Jovanović 0 LFC","Danny Wilson 2 LFC","Joe Cole 0 LFC","Christian Poulson 4.5 LFC","Brad Jones 2.3 LFC","Raul Meireles 11.5 LFC","Paul Konchesky 0 LFC","Suso 0 LFC","Yusuf Mersin 0.45 LFC","Luis Suarez 23 LFC","Andrew Carroll 35 LFC","Glen Johnson 17.5 LFC","Chris Mavinga 0 LFC","Stephen Sama 0 LFC","Alberto Aquilani 17 LFC","Sotirios Kyrgiakos 1.5 LFC","Maxi Rodriguez 0 LFC","Philipp Degen 0 LFC","Andrea Dossena 7 LFC","Diego Cavalieri 3.5 LFC","Robbie Keane 19 LFC","Vitor Flora 0 LFC","Albert Riera 8 LFC","David N'Gog 1.5 LFC"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"type":"scatter","name":"LFC","textfont":{"color":"rgba(200,16,46,1)","size":55},"error_y":{"color":"rgba(200,16,46,1)","width":55},"error_x":{"color":"rgba(200,16,46,1)","width":55},"line":{"color":"rgba(200,16,46,1)","width":55},"xaxis":"x","yaxis":"y","frame":null},{"x":[2018,2018,2018,2018,2019,2017,2017,2017,2017,2017,2017,2018,2018,2017,2016,2016,2016,2017,2016,2017,2016,2016,2016,2015,2015,2015,2015,2015,2015,2016,2014,2014,2014,2014,2014,2015,2013,2013,2013,2013,2013,2013,2012,2012,2012,2012,2012,2012,2011,2011,2011,2011,2012,2011,2011,2011,2010,2010,2010,2010,2010,2010,2010,2011,2009,2009,2009,2009,2009,2009,2009,2009,2009,2010,2010,2008,2008,2008,2008,2008,2008,2008,2009,2009,2009,2009],"y":[60,2.25,0,0.5,7,35,43,10.7,45,26.5,52,57,0,3,20,0,13.8,1.7,37,27,4.75,47.5,17.1,2,44,11,8,32,55,0.1,0,12,6,1.5,40,28,22.9,30,20.6,25.8,0.4,3.5,15,8,12,3,0,16,0,6,7,38,3,22,0,0,11,0.25,24,25,17,24.5,26,27,12,17.5,0,0,25.5,25,16,0,22,0,7,18,5,6.7,9,0,6.5,32.5,12,14,16,8],"mode":"markers","marker":{"color":"rgba(108,171,221,1)","size":[55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,55],"sizemode":"area","opacity":0.75,"line":{"color":"rgba(108,171,221,1)"}},"text":["Riyad Mahrez 60 MCFC","Philippe Sandler 2.25 MCFC","Claudio Gomes 0 MCFC","Daniel Arzani 0.5 MCFC","Zack Steffen 7 MCFC","Ederson 35 MCFC","Bernardo Silva 43 MCFC","Douglas Luiz 10.7 MCFC","Kyle Walker 45 MCFC","Danilo 26.5 MCFC","Benjamin Mendy 52 MCFC","Aymeric Laporte 57 MCFC","Jack Harrison 0 MCFC","Olarenwaju Kayode 3 MCFC","Ilkay Gundogan 20 MCFC","Aaron Mooy 0 MCFC","Nolito 13.8 MCFC","Oleksandr Zinchenko 1.7 MCFC","Leroy Sané 37 MCFC","Gabriel Jesus 27 MCFC","Marlos Moreno 4.75 MCFC","John Stones 47.5 MCFC","Claudio Bravo 17.1 MCFC","Enes Ünal 2 MCFC","Raheem Sterling 44 MCFC","Patrick Roberts 11 MCFC","Fabian Delph 8 MCFC","Nicolás Otamendi 32 MCFC","Kevin De Bruyne 55 MCFC","Anthony Cáceres 0.1 MCFC","Bacary Sagna 0 MCFC","Fernando 12 MCFC","Willy Caballero 6 MCFC","Bruno Zuculini 1.5 MCFC","Eliaquim Mangala 40 MCFC","Wilfried Bony 28 MCFC","Jesus Navas 22.9 MCFC","Fernandinho 30 MCFC","Álvaro Negredo 20.6 MCFC","Stevan Jovetic 25.8 MCFC","Zacharias Faour 0.4 MCFC","Martín Demichelis 3.5 MCFC","Jack Rodwell 15 MCFC","Scott Sinclair 8 MCFC","Matija Nastasic 12 MCFC","Maicon 3 MCFC","Richard Wright 0 MCFC","Javi Garcia 16 MCFC","Godsway Donyoh 0 MCFC","Stefan Savic 6 MCFC","Gaël Clichy 7 MCFC","Sergio Agüero 38 MCFC","Costel Pantilimon 3 MCFC","Samir Nasri 22 MCFC","Owen Hargreaves 0 MCFC","Luca Scapuzzi 0 MCFC","Jerome Boateng 11 MCFC","Alex Henshall 0.25 MCFC","Yaya Toure 24 MCFC","David Silva 25 MCFC","Aleksandar Kolarov 17 MCFC","Mario Balotelli 24.5 MCFC","James Milner 26 MCFC","Edin Dzeko 27 MCFC","Gareth Barry 12 MCFC","Roque Santa Cruz 17.5 MCFC","Gunnar Nielsen 0 MCFC","Stuart Taylor 0 MCFC","Carlos Tevez 25.5 MCFC","Emmanuel Adebayor 25 MCFC","Kolo Toure 16 MCFC","Sylvinho 0 MCFC","Joleon Lescott 22 MCFC","Patrick Vieira 0 MCFC","Adam Johnson 7 MCFC","Jo 18 MCFC","Tal Ben-Haim 5 MCFC","Vincent Kompany 6.7 MCFC","Shaun Wright Phillips 9 MCFC","Leandro Glauber 0 MCFC","Pablo Zabaleta 6.5 MCFC","Robinho 32.5 MCFC","Wayne Bridge 12 MCFC","Craig Bellamy 14 MCFC","Nigel De Jong 16 MCFC","Shay Given 8 MCFC"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"type":"scatter","name":"MCFC","textfont":{"color":"rgba(108,171,221,1)","size":55},"error_y":{"color":"rgba(108,171,221,1)","width":55},"error_x":{"color":"rgba(108,171,221,1)","width":55},"line":{"color":"rgba(108,171,221,1)","width":55},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</body>
+</html>
+
+Liverpool have certainly been making a little splash recently, which is not surprising after the sale of Phillipe Coutinho for a substantial fee. However, Manchester City have clearly invested significantly across a variety of recent seasons.
+
+One  question that occurred to us was in regards to the positions of purchased players. Had either team focused their resources on particular places on the football pitch?
 
 <html>
 <head>
@@ -142,5 +174,3 @@ Potential trends may be emerging from the age of players being purchased.
 </html>
 
 It is down to the individual reader to make any inferences here in terms of club policy. However, LFC does demonstrate a mean age of transfer targets almost a full year younger than MCFC. This is also true of the q3 values and slightly less true of q1. The difference is reduced somewhat looking at median. KDE of 1 occurs for LFC at ~25 years of age and for MCFC at ~24.80. Again, readers can reach their own conclusions but we find this interesting and would be of even greater interest if combined with data regarding contract length, etc.
-© 2019 GitHub, Inc.
- 
