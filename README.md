@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-#Liverpool FC vs Manchester City CFC
-Contextual Review of the 2018 - 2019 Premier League Title Race
-=======
+<h1>Liverpool FC vs Manchester City FC</h1>
 
-<h1>Contextual Review of the 2018 - 2019 Premier League Title Race</h1>
+<h2>Contextual Review of the 2018 - 2019 Premier League Title Race</h2>
 
 in 2017 - 2018, Manchester City won the title with 5 games to spare. During their run to last year's title, they set records for points (100), goals (106) and margin of victory (19 points).
 
@@ -17,7 +14,7 @@ This summary includes some of the observations we made.
 
 For those interested in R code and additional analysis, the most current R Notebook can be viewed <a href= "https://mogwail.github.io/LiverpoolFCvManchesterCityFC.html">here<a/> and includes all R code used to analyze the data. Additional analyses and plots are also included.
 
-Data and other files are freely available on github in the following repository: https://github.com/MogwaiL/mogwail.github.io
+Data and other files are freely available on github in the following repository: <a href= "https://github.com/MogwaiL/mogwail.github.io">MogwaiL<a/>
 
 We decided to look at transfer data from 2008 until present. This is a slightly arbitrary period but our reasoning was; 2008 was the year Manchester City was bought by Abu Dhabi United Group Investment and Development Limited, bringing new investment to the club. It was also the year that Vincent Kompany was bought from Hamburg for £7 Million (which we shall see was some bargain); Mr. Kompany is the current captain of Manchester City.
 
