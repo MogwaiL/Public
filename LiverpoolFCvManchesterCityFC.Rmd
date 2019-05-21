@@ -59,6 +59,7 @@ LFCvMCFC.Revenues <- # assignment to an object.
  filter(Football.Revenues, Identifier %in% c("LFC","MCFC")) # we like to use %in% but there are other methods.
  
 LFCvMCFC.Revenues
+
 ```
 
 We can see that the list is now filtered the way we like. Let's summarize and plot a visual of total revenues over the period in question.
@@ -567,7 +568,8 @@ LFCNationTrendPlot <-
           x = ~Year, y = ~Total,
           
           type = "scatter",
-          mode = 'line',
+          mode = 'lines+markers',
+    lines = list("England", "Brazil", "France", "Argentina", "Netherlands", "Spain"),
           linetype = ~International
           
           )
@@ -600,9 +602,8 @@ MCFCNationTrendPlot <-
           
           type = "scatter",
           mode = 'line',
-          linetype = ~International
-          
-)
+    linetype = ~International
+              )
 
 MCFCNationTrendPlot
 ```
