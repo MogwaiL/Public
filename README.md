@@ -4,7 +4,7 @@
 
 Questions often lead to more questions. And sometimes we would like answers.
 
-Further to an initial review of transfer activity by Liverpool and Manchester City, which can be viewed <a href= "https://mogwail.github.io/transfers">here<a/> , we obtained data for revenues which we find reliable.
+Further to an initial review of transfer activity by Liverpool and Manchester City, which can be viewed <a href= "https://mogwail.github.io/transfers.html">here<a/> , we obtained data for revenues which we find reliable.
 
 For those interested in R code and additional analysis, the most current R Notebook(html) can be viewed <a href= "https://mogwail.github.io/LiverpoolFCvManchesterCityFC.html">here<a/>.
 
