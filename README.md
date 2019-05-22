@@ -10,6 +10,11 @@ For those interested in R code and additional analysis, the most current R Noteb
 
 Data, R Notebooks and other files are available on github in the following repository: <a href= "https://github.com/MogwaiL/mogwail.github.io">MogwaiL<a/>
 
+
+<h3>Dashboard</h3>
+
+Click <a href="https://mogwail.github.io/dashboarding.html">HERE<a/>".
+
 <h3>Revenues</h3>
 
 
