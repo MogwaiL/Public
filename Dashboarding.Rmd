@@ -1,0 +1,129 @@
+---
+title: "A Tale of Two Cities"
+output: 
+  flexdashboard::flex_dashboard:
+    storyboard: true
+---
+
+Liverpool FC v Manchester City FC 2018/2019
+
+```{r}
+suppressMessages(library(dplyr))
+suppressMessages(library(tidyr))
+suppressMessages(library(readxl))
+suppressMessages(library(tinytex))
+suppressMessages(library(plotly))
+suppressMessages(library(lubridate))
+suppressMessages(library(htmltools))
+suppressMessages(library(stringr))
+```
+
+```{r}
+footie_palette <- c(rgb(200,16,46, maxColorValue = 255), rgb(108,171,221, maxColorValue = 255))
+footie_palette <- setNames(footie_palette, c("LFC", "MCFC"))
+```
+
+```{r}
+LabelTags <- c("Liverpool FC", "Manchester City")
+LabelTags <- setNames(LabelTags, c("LFC", "MCFC"))
+```
+
+
+```{r}
+Football.Revenues <- read.csv(file="data/FootballRevenues.csv", header=TRUE, sep=",")
+## This creates an object (in this case a data.frame) named 'Football.Revenues' from the csv file.
+```
+
+```{r}
+LFCvMCFC <- read_xlsx("data/LFCVMCFC.xlsx")
+```
+
+
+```{r}
+LFCvMCFC.Revenues <- # assignment to an object.
+ filter(Football.Revenues, Identifier %in% c("LFC","MCFC")) # we like to use %in% but there are other methods.
+```
+
+```{r}
+SpendSummary <-
+  
+  LFCvMCFC %>%
+  group_by(Club) %>%
+  summarise(TotalFees = sum(Fee))
+
+SpendSummary
+```
+
+
+```{r}
+Revenue.Totals <-
+  LFCvMCFC.Revenues %>% # we will discuss the "pipe" %>% below.
+  group_by(Club) %>%
+    summarize(Total = sum(Total))
+
+
+Revenue.Totals
+```
+
+
+
+Visual Storyboard {.storyboard}
+=========================================
+
+### Summary
+
+```{r}
+
+SummarySub <- plot_ly()%>%
+  add_pie(data = Revenue.Totals, labels = ~Club, values = ~Total,
+    marker = list(colors = footie_palette),
+    name = "Total Revenue",
+    domain = list(row = 0, column = 0),
+    textinfo = 'label+value+percent')%>%
+  layout(annotations = list(x = 0.15 , y = .00, text = "Total Revenue", showarrow = F, 
+xref='paper', yref='paper'))%>%
+  
+  
+  add_pie(data = SpendSummary, labels = LabelTags, values = ~TotalFees,
+    marker = list(colors = footie_palette),
+    name = "Transfer Spending",
+    domain = list(row = 0, column = 1),
+    textinfo = 'label+value+percent')%>%
+  
+layout(annotations = list(x = 0.85 , y = .00, text = "Transfer Spend", showarrow = F, 
+xref='paper', yref='paper'),
+title = "Liverpool and Manchester City - Revenue and Transfer Spend 2008 to 2018
+       (£ Millions)", showlegend = F,
+         grid=list(rows=1, columns=2),
+         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+
+SummarySub
+```
+
+***
+As we can see, from season 2007/2008 to season 2017/2018, revenues show only a minimal advantage for Manchester City. However, as we shall see with some upcoming visualizations, the trend would indicate a growing advantage for Manchester City.
+
+On the other hand, transfer spending has been heavily tilted in favour of Manchester City since season 2007/2008.
+
+A note on sources:
+Revenue data is based on Deloitte Football Money League publications and can be viewed [HERE](https://www2.deloitte.com/uk/en/pages/sports-business-group/articles/deloitte-football-money-league.html)
+
+Transfer data is collated from multiple sources; primarily https://www.transfermarkt.com/ and https://www.transferleague.co.uk/.
+
+A good deal of inspiration that started us on this project came from https://github.com/ewenme who did a fine job scraping transfermarkt. We will definitely be going back to that dataset for future analysis. His football repo can be viewed at https://github.com/ewenme/footy-transfer-data
+
+### Revenues
+
+```{r}
+```
+
+### Transfers
+
+Details
+=========================================
+
+Column
+-----------------------------------------
+```
+
