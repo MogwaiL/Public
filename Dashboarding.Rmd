@@ -17,6 +17,7 @@ suppressMessages(library(plotly))
 suppressMessages(library(lubridate))
 suppressMessages(library(htmltools))
 suppressMessages(library(stringr))
+suppressMessages(library(widgetframe))
 ```
 
 ```{r}
@@ -98,6 +99,7 @@ title = "Liverpool and Manchester City - Revenue and Transfer Spend 2008 to 2018
          grid=list(rows=1, columns=2),
          xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
          yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+
 
 SummarySub
 ```
