@@ -3,6 +3,7 @@ title: "A Tale of Two Cities"
 output: 
   flexdashboard::flex_dashboard:
     storyboard: true
+    self_contained: false
 ---
 
 Liverpool FC v Manchester City FC 2018/2019
@@ -80,7 +81,7 @@ SummarySub <- plot_ly()%>%
     name = "Total Revenue",
     domain = list(row = 0, column = 0),
     textinfo = 'label+value+percent')%>%
-  layout(annotations = list(x = 0.15 , y = .00, text = "Total Revenue", showarrow = F, 
+  layout(annotations = list(x = 0.15 , y = .25, text = "Total Revenue", showarrow = F, 
 xref='paper', yref='paper'))%>%
   
   
@@ -90,7 +91,7 @@ xref='paper', yref='paper'))%>%
     domain = list(row = 0, column = 1),
     textinfo = 'label+value+percent')%>%
   
-layout(annotations = list(x = 0.85 , y = .00, text = "Transfer Spend", showarrow = F, 
+layout(annotations = list(x = 0.85 , y = .25, text = "Transfer Spend", showarrow = F, 
 xref='paper', yref='paper'),
 title = "Liverpool and Manchester City - Revenue and Transfer Spend 2008 to 2018
        (£ Millions)", showlegend = F,
