@@ -13,7 +13,7 @@ Data, R Notebooks and other files are available on github in the following repos
 
 <h3>Dashboard</h3>
 
-Click <a href="https://mogwail.github.io/dashboarding.html">HERE<a/>".
+Click <a href="https://mogwail.github.io/Dashboarding.html">HERE<a/>.
 
 <h3>Revenues</h3>
 
