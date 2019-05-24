@@ -263,4 +263,4 @@ AgeViola
 ```
 
 ***
-Liverpool demonstrates a mean age of transfer targets almost a full year younger than Manchester City. This is also true of the q3 values and slightly less true of q1. The difference is reduced somewhat looking at median; KDE of 1 occurs for LFC at ~25 years of age and for MCFC at ~24.80. Again, readers can reach their own conclusions but we find this interesting and would be of even greater interest if combined with data regarding contract length, etc
+Liverpool demonstrates a mean age of transfer targets almost a full year younger than Manchester City. This is also true of the q3 values and slightly less true of q1. The difference is reduced somewhat looking at median; KDE of 1 occurs for LFC at ~24.5 years of age and for MCFC at ~24.80. Again, readers can reach their own conclusions but we find this interesting and would be of even greater interest if combined with data regarding contract length, etc
