@@ -103,6 +103,9 @@ Revenue.Plot <-
 Revenue.Plot
 ```
 
+***
+Liverpool booked more revenue than Manchester City from the 2007/2008 season until 2010/2011 season. From 2011/2012 onwards, Manchester City has steadily outperformed Liverpool. Although, for 2017/2018 it appears Liverpool have shrunk the gap somewhat. Whether this becomes a future trend is impossible to say but worth watching. In any event, it is clear that over 11 seasons, the overall revenue for these two teams had a steep incline. No doubt this is a large reflection of the tv deals signed by the Premier League over the past decade and the continued expansion of Premier League commercial activity.
+
 ### Annual Revenue by Stream
 
 ```{r}
@@ -161,6 +164,15 @@ layout(title = "LFC & MCFC Revenue Categories",
 
 Stream.Plot
 ```
+
+***
+This certainly tells a story.
+
+1. Matchday revenue is less relied upon than broadcast or commercial. After some remodelling at Anfield, Liverpool has opened an advantage.
+2. Broadcast revenue has seen huge growth and jumps can be seen every 3 years as new broadcast contracts are negotiated. Both teams are relatively even here with some fluctuation based on Champions League participation and other factors.
+3. Commercial revenue is significantly disparate. The latest figures show Manchester City a whopping £84 Million ahead for 2017/2018. While Liverpool is also growing its commercial revenue, Manchester City have held this advantage for some time now.
+
+Deloitte data does not include player sales in revenues. Commercial revenue is typically made up of sponsorship deals, leasing venues for concerts, etc. It is interesting that Manchester City is able to grow this type of activity beyond the levels of Liverpool.
 
 Transfers {.storyboard}
 =========================================
