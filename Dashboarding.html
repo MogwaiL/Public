@@ -23,7 +23,7 @@ window.FlexDashboardComponents = [];
 
 <script src="Dashboarding_files/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="Dashboarding_files/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="Dashboarding_files/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
 <script src="Dashboarding_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="Dashboarding_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="Dashboarding_files/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -735,55 +735,29 @@ table.dataTable thead th {
 
 
 body {
-  padding-top: 60px;
+  padding-top: 61px;
 }
 
 .section.sidebar {
-  top: 51px;
-  background-color: rgba(39, 128, 227, 0.1);
+  top: 52px;
+  background-color: rgba(68, 110, 155, 0.1);
 }
 
 .value-box {
-  color: #f9f9f9;
+  color: inherit;
 }
 
 .bg-primary {
-  background-color: rgba(39, 128, 227, 0.7);
+  background-color: rgba(68, 110, 155, 0.25);
 }
 
 .storyboard-nav .sbframelist ul li.active {
-  background-color: rgba(39, 128, 227, 0.7);
+   background-color: rgba(68, 110, 155, 0.7);
 }
 
 .nav-tabs-custom > .nav-tabs > li.active {
-  border-top-color: rgba(39, 128, 227, 0.7);
+  border-top-color: rgba(68, 110, 155, 0.7);
 }
-
-.bg-info {
-  background-color: rgba(153, 84, 187, 0.7);
-}
-
-.bg-warning {
-  background-color: rgba(255, 117, 24, 0.7);
-}
-
-.bg-danger {
-  background-color: rgba(255, 0, 57, 0.7);
-}
-
-.bg-success {
-  background-color: rgba(63, 182, 24, 0.7);
-}
-
-.chart-title {
-  font-weight: 500;
-}
-
-.nav-tabs-custom > .nav-tabs > li > a,
-.nav-tabs-custom > .nav-tabs > li > a:active {
-  font-weight: 500;
-}
-
 @media only screen and (min-width: 768px) {
 html, body {
   height: 100%;
@@ -2596,15 +2570,15 @@ window.FlexDashboardComponents.push({
 
 <div id="dashboard-container">
 
-<div id="visual-storyboard" class="section level1 storyboard">
-<h1>Visual Storyboard</h1>
-<div id="summary" class="section level3">
+<div id="summary" class="section level1 storyboard">
+<h1>Summary</h1>
+<div id="summary-1" class="section level3">
 <h3>Summary</h3>
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
-<div id="htmlwidget-68541971b8ca463cbe86" style="width:576px;height:460.8px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-68541971b8ca463cbe86">{"x":{"visdat":{"3dd052582861":["function () ","plotlyVisDat"],"3dd043997e59":["function () ","data"],"3dd01467346":["function () ","data"]},"cur_data":"3dd01467346","attrs":{"3dd043997e59":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","marker":{"colors":["#C8102E","#6CABDD"]},"name":"Total Revenue","domain":{"row":0,"column":0},"textinfo":"label+value+percent","inherit":true},"3dd01467346":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":["Liverpool FC","Manchester City"],"type":"pie","marker":{"colors":["#C8102E","#6CABDD"]},"name":"Transfer Spending","domain":{"row":0,"column":1},"textinfo":"label+value+percent","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"annotations":[{"x":0.15,"y":0.25,"text":"Total Revenue","showarrow":false,"xref":"paper","yref":"paper"},{"x":0.85,"y":0.25,"text":"Transfer Spend","showarrow":false,"xref":"paper","yref":"paper"}],"title":"Liverpool and Manchester City - Revenue and Transfer Spend 2008 to 2018<br />       (£ Millions)","showlegend":false,"grid":{"rows":1,"columns":2},"xaxis":{"showgrid":false,"zeroline":false,"showticklabels":false},"yaxis":{"showgrid":false,"zeroline":false,"showticklabels":false},"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"values":[2790.3,2998.4],"labels":["Liverpool FC","Manchester City"],"type":"pie","marker":{"color":"rgba(31,119,180,1)","colors":["#C8102E","#6CABDD"],"line":{"color":"rgba(255,255,255,1)"}},"name":"Total Revenue","domain":{"row":0,"column":0},"textinfo":"label+value+percent","frame":null},{"values":[900.95,1391.05],"labels":["Liverpool FC","Manchester City"],"type":"pie","marker":{"color":"rgba(255,127,14,1)","colors":["#C8102E","#6CABDD"],"line":{"color":"rgba(255,255,255,1)"}},"name":"Transfer Spending","domain":{"row":0,"column":1},"textinfo":"label+value+percent","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c94aec63182ede34b29e" style="width:576px;height:460.8px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c94aec63182ede34b29e">{"x":{"visdat":{"10f43d76331b":["function () ","plotlyVisDat"],"10f4588d3e0b":["function () ","data"],"10f46be52b5":["function () ","data"]},"cur_data":"10f46be52b5","attrs":{"10f4588d3e0b":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":{},"type":"pie","marker":{"colors":["#C8102E","#6CABDD"]},"name":"Total Revenue","domain":{"row":0,"column":0},"textinfo":"label+value+percent","inherit":true},"10f46be52b5":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"values":{},"labels":["Liverpool FC","Manchester City"],"type":"pie","marker":{"colors":["#C8102E","#6CABDD"]},"name":"Transfer Spending","domain":{"row":0,"column":1},"textinfo":"label+value+percent","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"annotations":[{"x":0.15,"y":0.25,"text":"Total Revenue","showarrow":false,"xref":"paper","yref":"paper"},{"x":0.85,"y":0.25,"text":"Transfer Spend","showarrow":false,"xref":"paper","yref":"paper"}],"title":"Liverpool and Manchester City - Revenue and Transfer Spend 2008 to 2018<br />       (£ Millions)","showlegend":false,"grid":{"rows":1,"columns":2},"xaxis":{"showgrid":false,"zeroline":false,"showticklabels":false},"yaxis":{"showgrid":false,"zeroline":false,"showticklabels":false},"hovermode":"closest"},"source":"A","config":{"showSendToCloud":false},"data":[{"values":[2790.3,2998.4],"labels":["Liverpool FC","Manchester City"],"type":"pie","marker":{"color":"rgba(31,119,180,1)","colors":["#C8102E","#6CABDD"],"line":{"color":"rgba(255,255,255,1)"}},"name":"Total Revenue","domain":{"row":0,"column":0},"textinfo":"label+value+percent","frame":null},{"values":[900.95,1391.05],"labels":["Liverpool FC","Manchester City"],"type":"pie","marker":{"color":"rgba(255,127,14,1)","colors":["#C8102E","#6CABDD"],"line":{"color":"rgba(255,255,255,1)"}},"name":"Transfer Spending","domain":{"row":0,"column":1},"textinfo":"label+value+percent","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <hr />
 <p>As we can see, from season 2007/2008 to season 2017/2018, revenues show only a minimal advantage for Manchester City. However, as we shall see with some upcoming visualizations, the trend would indicate a growing advantage for Manchester City.</p>
 <p>On the other hand, transfer spending has been heavily tilted in favour of Manchester City since season 2007/2008.</p>
@@ -2612,21 +2586,24 @@ window.FlexDashboardComponents.push({
 <p>Transfer data is collated from multiple sources; primarily <a href="https://www.transfermarkt.com/" class="uri">https://www.transfermarkt.com/</a> and <a href="https://www.transferleague.co.uk/" class="uri">https://www.transferleague.co.uk/</a>.</p>
 <p>A good deal of inspiration that started us on this project came from <a href="https://github.com/ewenme" class="uri">https://github.com/ewenme</a> who did a fine job scraping transfermarkt. We will definitely be going back to that dataset for future analysis. His football repo can be viewed at <a href="https://github.com/ewenme/footy-transfer-data" class="uri">https://github.com/ewenme/footy-transfer-data</a></p>
 </div>
-<div id="revenues" class="section level3">
-<h3>Revenues</h3>
+</div>
+<div id="revenue" class="section level1 storyboard">
+<h1>Revenue</h1>
+<div id="total-annual-revenue" class="section level3">
+<h3>Total Annual Revenue</h3>
 <div class="knitr-options" data-fig-width="576" data-fig-height="460">
 
 </div>
+<div id="htmlwidget-66bbdf0f0cb3ef1ead82" style="width:576px;height:460.8px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-66bbdf0f0cb3ef1ead82">{"x":{"visdat":{"10f45b8250c5":["function () ","plotlyVisDat"]},"cur_data":"10f45b8250c5","attrs":{"10f45b8250c5":{"x":{},"y":{},"mode":"line","color":{},"colors":["#C8102E","#6CABDD"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"legend":{"x":0.05,"y":0.95},"title":"LFC & MCFC Annual Revenue","yaxis":{"domain":[0,1],"automargin":true,"title":"(£ Millions)"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Season","type":"category","categoryorder":"array","categoryarray":["2007/2008","2008/2009","2009/2010","2010/2011","2011/2012","2012/2013","2013/2014","2014/2015","2015/2016","2016/2017","2017/2018"]},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["2017/2018","2016/2017","2015/2016","2014/2015","2013/2014","2012/2013","2011/2012","2010/2011","2009/2010","2008/2009","2007/2008"],"y":[455.1,364.5,302,298.1,255.8,206.2,188.7,183.6,184.5,184.8,167],"mode":"line","type":"scatter","name":"LFC","marker":{"color":"rgba(200,16,46,1)","line":{"color":"rgba(200,16,46,1)"}},"textfont":{"color":"rgba(200,16,46,1)"},"error_y":{"color":"rgba(200,16,46,1)"},"error_x":{"color":"rgba(200,16,46,1)"},"line":{"color":"rgba(200,16,46,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2017/2018","2016/2017","2015/2016","2014/2015","2013/2014","2012/2013","2011/2012","2010/2011","2009/2010","2008/2009","2007/2008"],"y":[503.5,453.5,392.6,352.6,346.5,271,231.1,153.2,125.1,87,82.3],"mode":"line","type":"scatter","name":"MCFC","marker":{"color":"rgba(108,171,221,1)","line":{"color":"rgba(108,171,221,1)"}},"textfont":{"color":"rgba(108,171,221,1)"},"error_y":{"color":"rgba(108,171,221,1)"},"error_x":{"color":"rgba(108,171,221,1)"},"line":{"color":"rgba(108,171,221,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="transfers" class="section level3">
-<h3>Transfers</h3>
+<div id="annual-revenue-by-stream" class="section level3">
+<h3>Annual Revenue by Stream</h3>
+<div class="knitr-options" data-fig-width="576" data-fig-height="460">
+
 </div>
-</div>
-<div id="details" class="section level1">
-<h1>Details</h1>
-<div id="column" class="section level2">
-<h2>Column</h2>
-<p>```</p>
+<div id="htmlwidget-7007385789df02913422" style="width:576px;height:460.8px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7007385789df02913422">{"x":{"data":[{"x":["2017/2018","2016/2017","2015/2016","2014/2015","2013/2014","2012/2013","2011/2012","2010/2011","2009/2010","2008/2009","2007/2008"],"y":[81.2,68.8,56.8,57.1,51,44.6,45.2,40.9,42.9,42.5,39.2],"mode":"lines","showlegend":false,"type":"scatter","name":"LFC","marker":{"color":"rgba(200,16,46,1)","line":{"color":"rgba(200,16,46,1)"}},"textfont":{"color":"rgba(200,16,46,1)"},"error_y":{"color":"rgba(200,16,46,1)"},"error_x":{"color":"rgba(200,16,46,1)"},"line":{"color":"rgba(200,16,46,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2017/2018","2016/2017","2015/2016","2014/2015","2013/2014","2012/2013","2011/2012","2010/2011","2009/2010","2008/2009","2007/2008"],"y":[56.6,51.9,52.5,43.4,47.5,39.6,30.8,26.6,24.4,20.8,18.5],"mode":"lines","showlegend":false,"type":"scatter","name":"MCFC","marker":{"color":"rgba(108,171,221,1)","line":{"color":"rgba(108,171,221,1)"}},"textfont":{"color":"rgba(108,171,221,1)"},"error_y":{"color":"rgba(108,171,221,1)"},"error_x":{"color":"rgba(108,171,221,1)"},"line":{"color":"rgba(108,171,221,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["2017/2018","2016/2017","2015/2016","2014/2015","2013/2014","2012/2013","2011/2012","2010/2011","2009/2010","2008/2009","2007/2008"],"y":[222.6,156.8,125.7,124.6,101,63.9,63.3,65.3,79.5,74.6,76.3],"mode":"lines","showlegend":false,"type":"scatter","name":"LFC","marker":{"color":"rgba(200,16,46,1)","line":{"color":"rgba(200,16,46,1)"}},"textfont":{"color":"rgba(200,16,46,1)"},"error_y":{"color":"rgba(200,16,46,1)"},"error_x":{"color":"rgba(200,16,46,1)"},"line":{"color":"rgba(200,16,46,1)"},"xaxis":"x2","yaxis":"y","frame":null},{"x":["2017/2018","2016/2017","2015/2016","2014/2015","2013/2014","2012/2013","2011/2012","2010/2011","2009/2010","2008/2009","2007/2008"],"y":[211.5,203.5,161.4,135.4,133.2,88.4,88.2,68.8,54,48.2,43.3],"mode":"lines","showlegend":false,"type":"scatter","name":"MCFC","marker":{"color":"rgba(108,171,221,1)","line":{"color":"rgba(108,171,221,1)"}},"textfont":{"color":"rgba(108,171,221,1)"},"error_y":{"color":"rgba(108,171,221,1)"},"error_x":{"color":"rgba(108,171,221,1)"},"line":{"color":"rgba(108,171,221,1)"},"xaxis":"x2","yaxis":"y","frame":null},{"x":["2017/2018","2016/2017","2015/2016","2014/2015","2013/2014","2012/2013","2011/2012","2010/2011","2009/2010","2008/2009","2007/2008"],"y":[151.3,138.9,119.5,116.4,103.8,97.7,80.2,77.4,62.1,67.7,51.5],"mode":"lines","type":"scatter","name":"LFC","marker":{"color":"rgba(200,16,46,1)","line":{"color":"rgba(200,16,46,1)"}},"textfont":{"color":"rgba(200,16,46,1)"},"error_y":{"color":"rgba(200,16,46,1)"},"error_x":{"color":"rgba(200,16,46,1)"},"line":{"color":"rgba(200,16,46,1)"},"xaxis":"x3","yaxis":"y","frame":null},{"x":["2017/2018","2016/2017","2015/2016","2014/2015","2013/2014","2012/2013","2011/2012","2010/2011","2009/2010","2008/2009","2007/2008"],"y":[235.4,198.1,178.7,173.8,165.8,143,112.1,57.8,46.7,18,20.5],"mode":"lines","type":"scatter","name":"MCFC","marker":{"color":"rgba(108,171,221,1)","line":{"color":"rgba(108,171,221,1)"}},"textfont":{"color":"rgba(108,171,221,1)"},"error_y":{"color":"rgba(108,171,221,1)"},"error_x":{"color":"rgba(108,171,221,1)"},"line":{"color":"rgba(108,171,221,1)"},"xaxis":"x3","yaxis":"y","frame":null}],"layout":{"xaxis":{"domain":[0,0.313333333333333],"automargin":true,"type":"category","categoryorder":"array","categoryarray":["2007/2008","2008/2009","2009/2010","2010/2011","2011/2012","2012/2013","2013/2014","2014/2015","2015/2016","2016/2017","2017/2018"],"anchor":"y"},"xaxis2":{"domain":[0.353333333333333,0.646666666666667],"automargin":true,"type":"category","categoryorder":"array","categoryarray":["2007/2008","2008/2009","2009/2010","2010/2011","2011/2012","2012/2013","2013/2014","2014/2015","2015/2016","2016/2017","2017/2018"],"anchor":"y"},"xaxis3":{"domain":[0.686666666666667,1],"automargin":true,"type":"category","categoryorder":"array","categoryarray":["2007/2008","2008/2009","2009/2010","2010/2011","2011/2012","2012/2013","2013/2014","2014/2015","2015/2016","2016/2017","2017/2018"],"anchor":"y"},"yaxis":{"domain":[0,1],"automargin":true,"title":"(£ Millions)","anchor":"x"},"annotations":[{"x":0.0626666666666667,"y":0.95,"text":"Matchday","showarrow":false,"xref":"paper","yref":"paper"},{"x":0.470666666666667,"y":0.95,"text":"Broadcast","showarrow":false,"xref":"paper","yref":"paper"},{"x":0.874666666666667,"y":0.95,"text":"Commercial","showarrow":false,"xref":"paper","yref":"paper"}],"shapes":[],"images":[],"margin":{"b":40,"l":60,"t":25,"r":10},"hovermode":"closest","showlegend":true,"title":"LFC & MCFC Revenue Categories"},"attrs":{"10f41c0d2813":{"x":{},"y":{},"mode":"lines","showlegend":false,"color":{},"colors":["#C8102E","#6CABDD"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"10f4252c574e":{"x":{},"y":{},"mode":"lines","showlegend":false,"color":{},"colors":["#C8102E","#6CABDD"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"10f42f4f2d20":{"x":{},"y":{},"mode":"lines","color":{},"colors":["#C8102E","#6CABDD"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"source":"A","config":{"showSendToCloud":false},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"subplot":true,"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 
@@ -2651,7 +2628,7 @@ $(document).ready(function () {
 <script type="text/javascript">
 $(document).ready(function () {
   FlexDashboard.init({
-    theme: "cosmo",
+    theme: "spacelab",
     fillPage: true,
     orientation: "columns",
     storyboard: true,
