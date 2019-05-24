@@ -5,6 +5,7 @@ output:
     storyboard: true
     self_contained: false
     theme: spacelab
+    
 ---
 
 Summary {.storyboard}
@@ -13,7 +14,6 @@ Summary {.storyboard}
 ### Summary
 
 ```{r, echo=FALSE}
-suppressMessages(library(prettydoc))
 suppressMessages(library(dplyr))
 suppressMessages(library(tidyr))
 suppressMessages(library(readxl))
@@ -22,9 +22,9 @@ suppressMessages(library(plotly))
 suppressMessages(library(lubridate))
 suppressMessages(library(htmltools))
 suppressMessages(library(flexdashboard))
-Football.Revenues <- read.csv(file="data/FootballRevenues.csv", header=TRUE, sep=",")
+Football.Revenues <- read.csv(file="footiedata/FootballRevenues.csv", header=TRUE, sep=",")
 ## This creates an object (in this case a data.frame) named 'Football.Revenues' from the csv file.
-LFCvMCFC <- read_xlsx("data/LFCVMCFC.xlsx")
+LFCvMCFC <- read_xlsx("footiedata/LFCVMCFC.xlsx")
 footie_palette <- c(rgb(200,16,46, maxColorValue = 255), rgb(108,171,221, maxColorValue = 255))
 footie_palette <- setNames(footie_palette, c("LFC", "MCFC"))
 LabelTags <- c("Liverpool FC", "Manchester City")
@@ -103,15 +103,9 @@ Revenue.Plot <-
 Revenue.Plot
 ```
 
-
 ### Annual Revenue by Stream
 
-```{r, echo=FALSE}
-Stream.Summary <-
-  LFCvMCFC.Revenues %>%
-  group_by(Club)%>%
-  summarize(Matchday = sum(Matchday), Commercial = sum(Commercial), Broadcast = sum(Broadcast))
-
+```{r}
 Matchday.Plot <-
   plot_ly(
     data = LFCvMCFC.Revenues,
@@ -124,7 +118,7 @@ Matchday.Plot <-
     showlegend = FALSE
   ) %>%
   
-  layout(annotations = list(x = 0.2 , y = .95, text = "Matchday", showarrow = F, 
+  layout(annotations = list(x = 0.2 , y = .85, text = "Matchday", showarrow = F, 
 xref='paper', yref='paper'))
 
 Broadcast.Plot <-
@@ -139,7 +133,7 @@ Broadcast.Plot <-
     showlegend = FALSE
   ) %>%
 
-layout(annotations = list(x = 0.4 , y = .95, text = "Broadcast", showarrow = F, 
+layout(annotations = list(x = 0.4 , y = .85, text = "Broadcast", showarrow = F, 
 xref='paper', yref='paper'))
   
 Commercial.Plot <-
@@ -154,7 +148,8 @@ Commercial.Plot <-
   ) %>%
   
   
-layout(annotations = list(x = 0.6 , y = .95, text = "Commercial", showarrow = F, 
+layout(legend = list(x = 0.04, y = 0.99),
+  annotations = list(x = 0.6 , y = .85, text = "Commercial", showarrow = F, 
 xref='paper', yref='paper'))
 
 Stream.Plot <- 
@@ -167,3 +162,5 @@ layout(title = "LFC & MCFC Revenue Categories",
 Stream.Plot
 ```
 
+Transfers {.storyboard}
+=========================================
