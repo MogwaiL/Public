@@ -22,9 +22,9 @@ suppressMessages(library(plotly))
 suppressMessages(library(lubridate))
 suppressMessages(library(htmltools))
 suppressMessages(library(flexdashboard))
-Football.Revenues <- read.csv(file="footiedata/FootballRevenues.csv", header=TRUE, sep=",")
+Football.Revenues <- read.csv(file="data/FootballRevenues.csv", header=TRUE, sep=",")
 ## This creates an object (in this case a data.frame) named 'Football.Revenues' from the csv file.
-LFCvMCFC <- read_xlsx("footiedata/LFCVMCFC.xlsx")
+LFCvMCFC <- read_xlsx("data/LFCVMCFC.xlsx")
 footie_palette <- c(rgb(200,16,46, maxColorValue = 255), rgb(108,171,221, maxColorValue = 255))
 footie_palette <- setNames(footie_palette, c("LFC", "MCFC"))
 LabelTags <- c("Liverpool FC", "Manchester City")
@@ -149,7 +149,7 @@ Commercial.Plot <-
   
   
 layout(legend = list(x = 0.04, y = 0.99),
-  annotations = list(x = 0.6 , y = .85, text = "Commercial", showarrow = F, 
+  annotations = list(x = 0.6 , y = .85, text = "Commercial", showarrow = F, size = 14,
 xref='paper', yref='paper'))
 
 Stream.Plot <- 
