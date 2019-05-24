@@ -176,3 +176,91 @@ Deloitte data does not include player sales in revenues. Commercial revenue is t
 
 Transfers {.storyboard}
 =========================================
+
+### Annual Transfer Spending
+
+```{r}
+#add column to df extracting year from "Date"
+LFCvMCFC$Year <-
+year(LFCvMCFC$Date)
+
+AnnualSpending <-
+  LFCvMCFC %>%
+  group_by(Year, Club) %>%
+  summarise(AnnualSpend = sum(Fee))
+
+AnnualPlot <-
+  
+  plot_ly(
+    data = AnnualSpending,
+    x = ~Year,
+    y = ~AnnualSpend,
+    type = "scatter",
+    mode = "line",
+    color = ~Club,
+    colors = footie_palette) %>%
+  
+  layout(legend = list(x = 0.05, y = 0.95), #sometimes we move the legend around
+      title = "LFC & MCFC Annual Transfer Spending",
+         yaxis = list(title = 'Spent (£ Millions)'))
+
+AnnualPlot
+```
+
+***
+Manchester City took full advantage of new investment in 2008, 2009 and 2010. This pattern also resumed in 2015, 2016 and 2017 where significant investment was made. Liverpool spent more on transfers than Manchester City during only three years; 2011, 2014 and 2018.
+
+### Individual Transfers
+
+```{r}
+TransactionScatter <- 
+ 
+   plot_ly(
+    data = LFCvMCFC,
+    x = ~Year,
+    y = ~Fee,
+    type = "scatter",
+    mode = 'markers',
+    color = ~Club,
+    colors = footie_palette,
+    size = 10, #we have opted for a standard size here
+    marker = list(opacity = 0.75), #we have a lot of density in parts so opacity is increased
+    text = ~paste(Player_Purchased, Fee, Club), #text and hoverinfo introduced to improve default hovertext
+    hoverinfo = "text") %>%
+
+layout(legend = list(x = 0.06, y = 1.0),
+       title = "LFC & MCFC Individual Transfers",
+       yaxis = list(title = 'Cost (£ Millions)'))
+
+TransactionScatter
+```
+
+***
+We can see LFC has the highest amount paid for a single player (Virgil van Dijk in 2018) but in all other years, MCFC purchased the most expensive player; in many years, several more expensive players than LFC.
+
+### Age Distribution of Players Purchased
+
+```{r}
+AgeViola <- LFCvMCFC %>%
+  
+  plot_ly(
+    x = ~Club,
+    y = ~Age_at_Transfer,
+    split = ~Club,
+    type = 'violin',
+    colors = footie_palette,
+    color = ~Club,
+    box = list(visible = T),
+    meanline = list(visible = T)) %>% 
+  
+  layout(title = "LFC & MCFC Age Distribution of Transfer Targets",
+    xaxis = list(title = "Club"),
+        yaxis = list(title = "Age at Transfer",
+      zeroline = F)
+  )
+
+AgeViola
+```
+
+***
+Liverpool demonstrates a mean age of transfer targets almost a full year younger than Manchester City. This is also true of the q3 values and slightly less true of q1. The difference is reduced somewhat looking at median; KDE of 1 occurs for LFC at ~25 years of age and for MCFC at ~24.80. Again, readers can reach their own conclusions but we find this interesting and would be of even greater interest if combined with data regarding contract length, etc
